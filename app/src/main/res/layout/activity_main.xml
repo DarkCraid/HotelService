@@ -43,7 +43,7 @@
             tools:layout_editor_absoluteY="8dp">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/txtNH"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="8dp"
@@ -76,6 +76,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/buttons"
+                android:onClick="guardar"
                 android:text="guardar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
