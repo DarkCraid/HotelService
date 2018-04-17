@@ -20,7 +20,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private dbConexion con = new dbConexion();
-    private EditText txtNH,txtruta;
+    private EditText txtNH,txtruta,txtIP;
     private generales gen = new generales();
     private Spinner lst;
     private TextView lbTitle;
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         lbTitle =   (TextView)findViewById(R.id.lbTitle);
         txtNH   =   (EditText)findViewById(R.id.txtNH);
         txtruta =   (EditText)findViewById(R.id.txtruta);
+        txtIP   =   (EditText)findViewById(R.id.txtIP);
         lst     =   (Spinner)findViewById(R.id.lst);
         btnsave =   (Button)findViewById(R.id.btnsave);
 
@@ -44,16 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         con.start(this);
         Cursor cursor = con.readData();
-        if(cursor.moveToFirst()){
-            if(cursor.getInt(1)==1)
-                entrar(cursor.getString(0),cursor.getString(2));
-            else{
-                Intent un=new Intent(this,Unable.class);
-                startActivity(un);
-                finish();
-            }
-            Toast.makeText(this, cursor.getString(2), Toast.LENGTH_SHORT).show();
-        }
+        if(cursor.moveToFirst())
+            entrar();
         con.db.close();
 
         lst.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -64,12 +57,14 @@ public class MainActivity extends AppCompatActivity {
                         lbTitle.setText("INITIAL SETUP");
                         txtruta.setHint("Web url*");
                         txtNH.setHint("Room number*");
+                        txtIP.setHint("Server IP*");
                         btnsave.setText("SAVE");
                         break;
                     default:
                         lbTitle.setText("CONFIGURACIÓN INICIAL");
                         txtruta.setHint("Ruta de la página*");
                         txtNH.setHint("Número de habitación*");
+                        txtIP.setHint("IP srvidor*");
                         btnsave.setText("GUARDAR");
                         break;
                 }
@@ -89,11 +84,12 @@ public class MainActivity extends AppCompatActivity {
             case "English":
                 if(txtNH.getText().toString().isEmpty())    errors.add("Type room number.");
                 if(txtruta.getText().toString().isEmpty())  errors.add("Type web url.");
-
+                if(txtIP.getText().toString().isEmpty())    errors.add("Type server IP.");
                 break;
             default:
                 if(txtNH.getText().toString().isEmpty())    errors.add("Ingrese el número de la habitación.");
                 if(txtruta.getText().toString().isEmpty())  errors.add("Ingrese la ruta de la web.");
+                if(txtIP.getText().toString().isEmpty())    errors.add("Ingrese la ip del servidor.");
                 break;
         }
 
@@ -102,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             ContentValues reg = new ContentValues();
             reg.put("numeroh",txtNH.getText().toString());
             reg.put("ruta",txtruta.getText().toString());
+            reg.put("ipserver",txtIP.getText().toString());
             if(con.InsertTable("tabletdata",reg)==-1){
                 String cont = "";
                 switch (lst.getSelectedItem().toString()){
@@ -116,17 +113,15 @@ public class MainActivity extends AppCompatActivity {
                 }
                 gen.alerta(titles,cont,this);
             }else
-                entrar(txtNH.getText().toString(),txtruta.getText().toString());
+                entrar();
             con.db.close();
         }else
             gen.alerta("¡ERROR!",gen.setListErrors(errors),this);
 
     }
 
-    public void entrar(String identificador,String ruta){
+    public void entrar(){
         Intent log=new Intent(this,inicio.class);
-        log.putExtra("nh",identificador);
-        log.putExtra("ruta",ruta);
         startActivity(log);
         finish();
     }

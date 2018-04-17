@@ -13,8 +13,8 @@ public class dbSQLite extends SQLiteOpenHelper {
         super(cont,name,factory,version);
     }
     @Override
-    public void onCreate(SQLiteDatabase db) {           //   0                         1                        2
-        db.execSQL("create table IF NOT EXISTS tabletdata(numeroh text primary key, estado boolean default 0, ruta text)");
+    public void onCreate(SQLiteDatabase db) {           //   0                         1                        2           3
+        db.execSQL("create table IF NOT EXISTS tabletdata(numeroh text primary key, estado boolean default 0, ruta text, ipserver text)");
     }
 
     @Override
