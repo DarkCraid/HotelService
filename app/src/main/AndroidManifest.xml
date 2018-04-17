@@ -19,9 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".inicio"/>
+        <activity android:name=".inicio"
+            android:screenOrientation="landscape"/>
         <activity android:name=".Unable"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            >
 
         </activity>
     </application>
