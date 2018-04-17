@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = con.readData();
         if(cursor.moveToFirst()){
             if(cursor.getInt(1)==1)
-                entrar(cursor.getString(0));
+                entrar(cursor.getString(0),cursor.getString(2));
             else{
                 Intent un=new Intent(this,Unable.class);
                 startActivity(un);
@@ -115,16 +115,17 @@ public class MainActivity extends AppCompatActivity {
                 }
                 gen.alerta(titles,cont,this);
             }else
-                entrar(txtNH.getText().toString());
+                entrar(txtNH.getText().toString(),txtruta.getText().toString());
             con.db.close();
         }else
             gen.alerta("¡ERROR!",gen.setListErrors(errors),this);
 
     }
 
-    public void entrar(String identificador){
+    public void entrar(String identificador,String ruta){
         Intent log=new Intent(this,inicio.class);
         log.putExtra("nh",identificador);
+        log.putExtra("ruta",ruta);
         startActivity(log);
         finish();
     }
