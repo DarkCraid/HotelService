@@ -7,51 +7,6 @@
     tools:context="com.hotelservice.hotelservice.MainActivity"
     android:background="#000000">
 
-    <TextView
-        android:id="@+id/lbTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="CONFIGURACIÓN INICIAL"
-        android:textColor="#e3e3e3"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.016" />
-
-    <EditText
-        android:id="@+id/txtruta"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="0.00"
-        android:background="#e9e9e9"
-        android:ems="10"
-        android:hint="Ruta de la página*"
-        android:inputType="textPersonName"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbTitle"
-        app:layout_constraintVertical_bias="0.0"
-        android:textColor="#000000"/>
-
     <Spinner
         android:id="@+id/lst"
         android:layout_width="0dp"
@@ -95,27 +50,73 @@
             android:orientation="vertical"
             android:weightSum="1">
 
-            <EditText
-                android:id="@+id/txtNH"
-                android:layout_width="273dp"
-                android:layout_height="70px"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="#e9e9e9"
-                android:ems="10"
-                android:hint="Número de habitación*"
-                android:inputType="textPersonName"
-                android:padding="5dp"
-                android:textColor="#000000"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lbTitle"
-                app:layout_constraintVertical_bias="0.01999998" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="vertical"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="16dp">
+
+        <TextView
+            android:id="@+id/lbTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="CONFIGURACIÓN INICIAL"
+            android:textColor="#e3e3e3"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.016" />
+
+        <EditText
+            android:id="@+id/txtruta"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="0.00"
+            android:background="@drawable/inputs"
+            android:ems="10"
+            android:hint="Ruta de la página*"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textColor="#e3e3e3"
+            android:textColorHint="#e3e3e3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbTitle"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
 
             <EditText
                 android:id="@+id/txtIP"
@@ -126,13 +127,119 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_weight="0.10"
-                android:background="#e9e9e9"
+                android:layout_weight="1"
+                android:background="@drawable/inputs"
                 android:ems="10"
                 android:hint="IP servidor*"
                 android:inputType="textPersonName"
                 android:padding="5dp"
-                android:textColor="#000000"
+                android:textColor="#e3e3e3"
+                android:textColorHint="#e3e3e3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbTitle"
+                app:layout_constraintVertical_bias="0.01999998" />
+
+            <EditText
+                android:id="@+id/txtNH"
+                android:layout_width="273dp"
+                android:layout_height="70px"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/inputs"
+                android:ems="10"
+                android:hint="Habitación*"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:textColor="#e3e3e3"
+                android:textColorHint="#e3e3e3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbTitle"
+                app:layout_constraintVertical_bias="0.01999998" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/txtusuario"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="0.00"
+            android:background="@drawable/inputs"
+            android:ems="10"
+            android:hint="Usuario Maestro*"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textColor="#e3e3e3"
+            android:textColorHint="#e3e3e3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbTitle"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <EditText
+                android:id="@+id/txtpssw1"
+                android:layout_width="282dp"
+                android:layout_height="70px"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/inputs"
+                android:ems="10"
+                android:hint="Contraseña*"
+                android:inputType="textPassword"
+                android:padding="5dp"
+                android:textColor="#e3e3e3"
+                android:textColorHint="#e3e3e3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbTitle"
+                app:layout_constraintVertical_bias="0.01999998" />
+
+            <EditText
+                android:id="@+id/txtpssw2"
+                android:layout_width="273dp"
+                android:layout_height="70px"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/inputs"
+                android:ems="10"
+                android:hint="Confirmar*"
+                android:inputType="textPassword"
+                android:padding="5dp"
+                android:textColor="#e3e3e3"
+                android:textColorHint="#e3e3e3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -143,7 +250,7 @@
 
         <Button
             android:id="@+id/btnsave"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
@@ -160,6 +267,8 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.060000002" />
+
     </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
