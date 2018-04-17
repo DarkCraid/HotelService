@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             else{
                 Intent un=new Intent(this,Unable.class);
                 startActivity(un);
+                finish();
             }
             Toast.makeText(this, cursor.getString(2), Toast.LENGTH_SHORT).show();
         }
