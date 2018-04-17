@@ -20,7 +20,7 @@ public class dbConexion {
 
     public Boolean changeStatus(String nh,int est){
         ContentValues reg=new ContentValues();
-        reg.put("status",est);
+        reg.put("estado",est);
         if(db.update("tabletdata",reg,"numeroh='"+nh+"'",null)!=0)
             return true;
         else

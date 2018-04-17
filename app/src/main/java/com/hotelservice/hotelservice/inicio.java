@@ -1,7 +1,9 @@
 package com.hotelservice.hotelservice;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -33,13 +35,16 @@ public class inicio extends AppCompatActivity {
 
         {
             try{
-                msocket= IO.socket("http://192.168.1.67:90");
+                msocket= IO.socket("http://192.168.10.118:90");
             }catch(URISyntaxException e){ }
         }
 
         msocket.on("connect",connect);
         msocket.on("cambiarStatus",changeStatus);
         msocket.connect();
+
+        WebSettings webSettings = page.getSettings();
+        webSettings.setJavaScriptEnabled(true);
 
         page.setWebViewClient(new WebViewClient());
         page.loadUrl(ruta);
@@ -64,7 +69,17 @@ public class inicio extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    ver(args[0].toString());
+                    startConS();
+                    if(! con.changeStatus(id,Integer.parseInt(args[0].toString())))
+                        ThreadAlert("¡ERROR!","No fue posible activar o desactivar el dispositivo.");
+                    else{
+                        if(Integer.parseInt(args[0].toString())==0)
+                            intentUnable();
+                        else
+                            intentInicio();
+
+                    }
+                    con.db.close();
                 }
             });
         }
@@ -72,5 +87,20 @@ public class inicio extends AppCompatActivity {
 
     public void ver(String ver){
         Toast.makeText(this, ver, Toast.LENGTH_SHORT).show();
+    }
+
+    public void startConS(){   con.start(this);   }
+    public void ThreadAlert(String title, String cont){  gen.alerta(title,cont,this);   }
+    public void intentUnable(){
+        Intent un=new Intent(this,Unable.class);
+        startActivity(un);
+        finish();
+    }
+    public void intentInicio(){
+        Intent log=new Intent(this,inicio.class);
+        log.putExtra("nh",id);
+        log.putExtra("ruta",ruta);
+        startActivity(log);
+        finish();
     }
 }
