@@ -50,7 +50,9 @@ public class inicio extends AppCompatActivity {
             {
                 try{
                     msocket= IO.socket("http://"+cursor.getString(3)+":90");
-                }catch(URISyntaxException e){ }
+                }catch(URISyntaxException e){
+
+                }
             }
 
             msocket.on("connect",connect);
