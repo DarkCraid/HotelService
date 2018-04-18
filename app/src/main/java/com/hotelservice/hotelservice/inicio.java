@@ -46,7 +46,7 @@ public class inicio extends AppCompatActivity {
         if(cursor.moveToFirst()){
             id = cursor.getString(0);
             ruta = cursor.getString(2);
-
+            con.habitacion = id;
             {
                 try{
                     msocket= IO.socket("http://"+cursor.getString(3)+":90");
@@ -73,6 +73,7 @@ public class inicio extends AppCompatActivity {
         WebSettings webSettings = page.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
+        page.addJavascriptInterface(new WebAppInterface(this,id), "Android");
         page.setWebViewClient(new WebViewClient());
         page.loadUrl(ruta);
     }

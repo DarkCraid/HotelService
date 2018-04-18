@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class dbConexion {
     public SQLiteDatabase db;
+    public String habitacion;
 
     public void start(Context cont){
         dbSQLite mod=new dbSQLite(cont,"hotelserv",null,1);
@@ -34,5 +35,9 @@ public class dbConexion {
     public Cursor readData(){
         Cursor cursor=db.rawQuery("select * from tabletdata",null);
         return cursor;
+    }
+
+    public String getHabitacion(){
+        return habitacion;
     }
 }
